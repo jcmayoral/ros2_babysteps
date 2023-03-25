@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(my_ros2_package)
+project(basics)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -20,6 +20,21 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
+
+set(dependencies
+  rclcpp
+)
+
+add_executable(basic src/simple.cpp)
+ament_target_dependencies(basic ${dependencies})
+
+install(TARGETS
+  basic
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -31,4 +46,5 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+ament_export_dependencies(${dependencies})
 ament_package()
