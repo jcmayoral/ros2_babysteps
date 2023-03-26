@@ -1,0 +1,10 @@
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/install/strip.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/install/local.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/install.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/list_install_components.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/rebuild_cache.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/edit_cache.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/test.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/basic.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/basics_uninstall.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/basics/CMakeFiles/uninstall.dir

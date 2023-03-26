@@ -1,0 +1,22 @@
+[35m[1mScanning dependencies of target logger[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/logger.dir/src/logger.cpp.o[0m
+[100%] [32m[1mLinking CXX executable logger[0m
+[100%] Built target logger
+-- Install configuration: ""
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/lib/br2_basics/logger
+-- Set runtime path of "/home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/lib/br2_basics/logger" to ""
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/ament_index/resource_index/package_run_dependencies/br2_basics
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/ament_index/resource_index/parent_prefix_path/br2_basics
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/environment/ament_prefix_path.sh
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/environment/ament_prefix_path.dsv
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/environment/path.sh
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/environment/path.dsv
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/local_setup.bash
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/local_setup.sh
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/local_setup.zsh
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/local_setup.dsv
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/package.dsv
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/ament_index/resource_index/packages/br2_basics
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/cmake/br2_basicsConfig.cmake
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/cmake/br2_basicsConfig-version.cmake
+-- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/br2_basics/share/br2_basics/package.xml

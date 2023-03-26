@@ -1,0 +1,58 @@
+[0.100s] Invoking command in '/home/jose/ws/ros2/src/ros2_babysteps/build/my_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/jose/ws/ros2/src/ros2_babysteps/my_package -DCMAKE_INSTALL_PREFIX=/home/jose/ws/ros2/src/ros2_babysteps/install/my_package
+[1.559s] -- The C compiler identification is GNU 9.4.0
+[3.288s] -- The CXX compiler identification is GNU 9.4.0
+[4.143s] -- Check for working C compiler: /usr/bin/cc
+[4.913s] -- Check for working C compiler: /usr/bin/cc -- works
+[4.918s] -- Detecting C compiler ABI info
+[5.541s] -- Detecting C compiler ABI info - done
+[5.574s] -- Detecting C compile features
+[5.578s] -- Detecting C compile features - done
+[5.586s] -- Check for working CXX compiler: /usr/bin/c++
+[6.388s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[6.391s] -- Detecting CXX compiler ABI info
+[7.408s] -- Detecting CXX compiler ABI info - done
+[7.440s] -- Detecting CXX compile features
+[7.442s] -- Detecting CXX compile features - done
+[7.459s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[7.599s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[7.599s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[8.481s] -- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[8.733s] -- Added test 'copyright' to check source files copyright and LICENSE
+[8.737s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[8.738s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/jose/ws/ros2/src/ros2_babysteps/my_package/include>
+[8.738s] -- Configured cppcheck exclude dirs and/or files: 
+[8.742s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[8.742s] -- Configured cpplint exclude dirs and/or files: 
+[8.747s] -- Added test 'lint_cmake' to check CMake code style
+[8.751s] -- Added test 'uncrustify' to check C / C++ code style
+[8.751s] -- Configured uncrustify additional arguments: 
+[8.754s] -- Added test 'xmllint' to check XML markup files
+[8.764s] -- Configuring done
+[8.775s] -- Generating done
+[8.779s] -- Build files have been written to: /home/jose/ws/ros2/src/ros2_babysteps/build/my_package
+[8.794s] Invoked command in '/home/jose/ws/ros2/src/ros2_babysteps/build/my_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/jose/ws/ros2/src/ros2_babysteps/my_package -DCMAKE_INSTALL_PREFIX=/home/jose/ws/ros2/src/ros2_babysteps/install/my_package
+[8.802s] Invoking command in '/home/jose/ws/ros2/src/ros2_babysteps/build/my_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jose/ws/ros2/src/ros2_babysteps/build/my_package -- -j8 -l8
+[8.891s] [35m[1mScanning dependencies of target my_node[0m
+[8.929s] [ 50%] [32mBuilding CXX object CMakeFiles/my_node.dir/src/my_node.cpp.o[0m
+[9.026s] [100%] [32m[1mLinking CXX executable my_node[0m
+[9.925s] [100%] Built target my_node
+[9.957s] Invoked command in '/home/jose/ws/ros2/src/ros2_babysteps/build/my_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jose/ws/ros2/src/ros2_babysteps/build/my_package -- -j8 -l8
+[10.094s] Invoking command in '/home/jose/ws/ros2/src/ros2_babysteps/build/my_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jose/ws/ros2/src/ros2_babysteps/build/my_package
+[10.117s] -- Install configuration: ""
+[10.118s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/lib/my_package/my_node
+[10.120s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/ament_index/resource_index/package_run_dependencies/my_package
+[10.122s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/ament_index/resource_index/parent_prefix_path/my_package
+[10.124s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/environment/ament_prefix_path.sh
+[10.125s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/environment/ament_prefix_path.dsv
+[10.125s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/environment/path.sh
+[10.126s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/environment/path.dsv
+[10.127s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/local_setup.bash
+[10.128s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/local_setup.sh
+[10.128s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/local_setup.zsh
+[10.129s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/local_setup.dsv
+[10.130s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/package.dsv
+[10.131s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/ament_index/resource_index/packages/my_package
+[10.131s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/cmake/my_packageConfig.cmake
+[10.131s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/cmake/my_packageConfig-version.cmake
+[10.132s] -- Installing: /home/jose/ws/ros2/src/ros2_babysteps/install/my_package/share/my_package/package.xml
+[10.143s] Invoked command in '/home/jose/ws/ros2/src/ros2_babysteps/build/my_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jose/ws/ros2/src/ros2_babysteps/build/my_package

@@ -1,0 +1,10 @@
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/install/strip.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/install/local.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/install.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/list_install_components.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/rebuild_cache.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/edit_cache.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/test.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/talker.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/cpp_pubsub_uninstall.dir
+/home/jose/ws/ros2/src/ros2_babysteps/build/cpp_pubsub/CMakeFiles/uninstall.dir

@@ -1,0 +1,4 @@
+Invoking command in '/home/jose/ws/ros2/src/ros2_babysteps/build/basics': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jose/ws/ros2/src/ros2_babysteps/build/basics -- -j8 -l8
+Invoked command in '/home/jose/ws/ros2/src/ros2_babysteps/build/basics' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jose/ws/ros2/src/ros2_babysteps/build/basics -- -j8 -l8
+Invoking command in '/home/jose/ws/ros2/src/ros2_babysteps/build/basics': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jose/ws/ros2/src/ros2_babysteps/build/basics
+Invoked command in '/home/jose/ws/ros2/src/ros2_babysteps/build/basics' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jose/ws/ros2/src/ros2_babysteps/build/basics
