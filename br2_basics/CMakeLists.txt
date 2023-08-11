@@ -27,8 +27,11 @@ set(dependencies
 add_executable(logger src/logger.cpp)
 ament_target_dependencies(logger ${dependencies})
 
+add_executable(logger_class src/logger_class.cpp)
+ament_target_dependencies(logger_class ${dependencies})
+
 install(TARGETS
-  logger
+  logger logger_class
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
