@@ -1,13 +1,13 @@
-#include <rclcpp/rclcpp.h>
-#include <std_msgs/msg/Int32.h>
+#include <rclcpp/rclcpp.hpp>
+#include <std_msgs/msg/int32.hpp>
 
 using namespace std::chrono_literals;
 
 class PublisherNode : public rclcpp::Node{
     public: 
-    PublisherNode(){
+    PublisherNode(): Node("publisher_node"){
         publisher_ = this->create_publisher<std_msgs::msg::Int32>("int_topic", 10);
-        timer_ = this->create_wall_timer(500ms, boost::bind(&PublisherNode::timer_callback, this));
+        timer_ = this->create_wall_timer(500ms, std::bind(&PublisherNode::timer_callback, this));
     }
 
     void timer_callback(){
@@ -16,9 +16,17 @@ class PublisherNode : public rclcpp::Node{
     }
 
     private:
-    rclcpp::Publisher<std_msgs::msgs::Int32>::SharedPtr publisher_;
+    rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
-    std_msgs::msgs::Int32 message_;
+    std_msgs::msg::Int32 message_;
 
+};
 
+int main(int argc, char** argv){
+    rclcpp::init(argc, argv);
+    std::shared_ptr<PublisherNode> node = std::make_shared<PublisherNode>();
+
+    rclcpp::spin(node);
+    rclcpp::shutdown();
+    return 0;
 }
