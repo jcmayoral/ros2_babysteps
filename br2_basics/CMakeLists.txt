@@ -29,6 +29,7 @@ install(TARGETS
   logger 
   logger_class
   publisher_class
+  subscription_class
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
