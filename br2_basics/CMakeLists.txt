@@ -22,6 +22,9 @@ ament_target_dependencies(logger_class ${dependencies})
 add_executable(publisher_class src/publisher_class.cpp)
 ament_target_dependencies(publisher_class ${dependencies})
 
+add_executable(subscription_class src/subscription_class.cpp)
+ament_target_dependencies(subscription_class ${dependencies})
+
 install(TARGETS
   logger 
   logger_class
