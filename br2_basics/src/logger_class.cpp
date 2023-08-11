@@ -1,10 +1,12 @@
 #include <rclcpp/rclcpp.hpp>
 
-class LoggerClass : public rclpp::Node{
+using namespace std::chrono_literals;
+
+class LoggerClass : public rclcpp::Node{
     public:
     LoggerClass() : Node("logger_node"){
         counter_ = 0;
-        timer_ = create_wall(500ms, 
+        timer_ = create_wall_timer(500ms, 
             std::bind(&LoggerClass::timer_callback, this));
     }
     void timer_callback(){
@@ -16,10 +18,10 @@ class LoggerClass : public rclpp::Node{
 };
 
 int main(int argc, char** argv){
-    rclcpp::init(argv, argv);
-    std::shared_ptr<LoggerNode> node = std::make_shared<LoggerNode?>
+    rclcpp::init(argc, argv);
+    std::shared_ptr<LoggerClass> node = std::make_shared<LoggerClass>();
 
     rclcpp::spin(node);
     rclcpp::shutdown();
-    return;
+    return 0;
 }

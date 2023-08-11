@@ -1,28 +1,17 @@
 cmake_minimum_required(VERSION 3.5)
 project(br2_basics)
 
-# Default to C99
-if(NOT CMAKE_C_STANDARD)
-  set(CMAKE_C_STANDARD 99)
-endif()
-
-# Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
-
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
-
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(std_msgs REQUIRED)
+
 
 set(dependencies
   rclcpp
 )
+
 
 add_executable(logger src/logger.cpp)
 ament_target_dependencies(logger ${dependencies})
@@ -31,7 +20,8 @@ add_executable(logger_class src/logger_class.cpp)
 ament_target_dependencies(logger_class ${dependencies})
 
 install(TARGETS
-  logger logger_class
+  logger 
+  logger_class
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
