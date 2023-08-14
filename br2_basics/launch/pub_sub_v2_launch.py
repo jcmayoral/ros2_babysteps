@@ -12,7 +12,7 @@ def generate_launch_description():
         ),
         Node(
             package='br2_basics',
-            executable='subscriber_class',
+            executable='subscription_class',
             output='screen'
         )
     ])
