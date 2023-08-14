@@ -7,7 +7,7 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='br2_basics',
-            executable='publisher',
+            executable='publisher_class',
             output='screen'
         ),
         Node(
