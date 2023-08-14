@@ -28,12 +28,16 @@ ament_target_dependencies(subscription_class ${dependencies})
 add_executable(param_reader src/param_reader.cpp)
 ament_target_dependencies(param_reader ${dependencies})
 
+add_executable(executors src/executors.cpp)
+ament_target_dependencies(executors ${dependencies})
+
 install(TARGETS
   logger 
   logger_class
   publisher_class
   subscription_class
   param_reader
+  executors
 
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
