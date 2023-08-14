@@ -6,12 +6,12 @@ def generate_launch_description():
 
     return LaunchDescription([
         Node(
-            package='br2_basics',
+            package='basics2',
             executable='publisher_class',
             output='screen'
         ),
         Node(
-            package='br2_basics',
+            package='basics2',
             executable='subscription_class',
             output='screen'
         )

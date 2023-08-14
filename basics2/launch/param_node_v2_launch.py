@@ -5,16 +5,15 @@ from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
-    print(FindPackageShare("br2_basics"))
 
     config = os.path.join(
-        get_package_share_directory('br2_basics'),
+        get_package_share_directory('basics2'),
         'config',
         'params.yaml'
     )
-    print (config)
+
     params_cmd = Node(
-        package="br2_basics",
+        package="basics2",
         executable="param_reader",
         output="screen",
         parameters= [config]

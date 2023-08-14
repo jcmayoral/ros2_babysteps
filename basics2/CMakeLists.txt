@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(br2_basics)
+project(basics2)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)

@@ -4,7 +4,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     params_cmd = Node(
-        package="br2_basics",
+        package="basics2",
         executable="param_reader",
         output="screen",
         parameters= [{
