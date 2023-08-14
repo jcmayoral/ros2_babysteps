@@ -44,6 +44,7 @@ int main(int argc, char** argv){
     auto node_pub = std::make_shared<PublisherNode>();\
     auto node_sub = std::make_shared<SubscriptionNode>();
 
+    //Difference Single Thread or Multi to optimize management
     //rclcpp::executors::SingleThreadedExecutor executor;
     rclcpp::executors::MultiThreadedExecutor executor(
         rclcpp::executor::ExecutorArgs(), 8
