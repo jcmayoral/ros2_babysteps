@@ -41,7 +41,7 @@ class SubscriptionNode : public rclcpp::Node{
 
 int main(int argc, char** argv){
     rclcpp::init(argc, argv);
-    auto node_pub = std::make_shared<PublisherNode>();\
+    auto node_pub = std::make_shared<PublisherNode>();
     auto node_sub = std::make_shared<SubscriptionNode>();
 
     //Difference Single Thread or Multi to optimize management
