@@ -47,7 +47,7 @@ int main(int argc, char** argv){
     //Difference Single Thread or Multi to optimize management
     //rclcpp::executors::SingleThreadedExecutor executor;
     rclcpp::executors::MultiThreadedExecutor executor(
-        rclcpp::executor::ExecutorArgs(), 8
+        rclcpp::ExecutorOptions(), 8
     );
 
     executor.add_node(node_pub);
