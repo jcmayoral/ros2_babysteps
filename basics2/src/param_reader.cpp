@@ -1,12 +1,11 @@
 #include <rclcpp/rclcpp.hpp>
-#include <rclcpp/executor.hpp>
 
 class LocalizationNode : public rclcpp::Node {
     public:
     LocalizationNode() : Node("localization_node"){
-        declare_parameter<int> ("number_particles", 200);
-        declare_parameter<std::vector<std::string>> ("topics", {});
-        declare_parameter<std::vector<std::string>> ("topics_types", {});
+        declare_parameter("number_particles", 200);
+        declare_parameter("topics", std::vector<std::string>());
+        declare_parameter("topics_types", std::vector<std::string>());
 
         RCLCPP_INFO(get_logger(), "inside node ");
         get_parameter("number_particles", number_particles_);
