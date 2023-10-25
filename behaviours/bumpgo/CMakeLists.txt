@@ -27,12 +27,19 @@ include_directories(
   include/
 )
 
-add_library(${PROJECT_NAME} src/bumpgo.cpp )
+add_library(${PROJECT_NAME} SHARED src/bumpgo.cpp )
 ament_target_dependencies(${PROJECT_NAME} rclcpp ${dependencies})
 
 add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp)
-ament_target_dependencies(${PROJECT_NAME}_node rclcpp ${dependencies})
+ament_target_dependencies(${PROJECT_NAME}_node rclcpp)
+target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME})
 
-install(TARGETS ${PROJECT_NAME}_node DESTINATION lib/${PROJECT_NAME})
+#ament_target_dependencies(${PROJECT_NAME}_node)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
+install(TARGETS ${PROJECT_NAME}_node DESTINATION bin)
+#install(TARGETS myStaticLib DESTINATION lib/myproject)
+#install(TARGETS myPlugin DESTINATION lib)
+
 
 ament_package()

@@ -1,6 +1,6 @@
 #include <bumpgo/bumpgo.h>
 
-BumpGo::BumpGo() : Node("bump_go")
+BumpGo::BumpGo() : Node("bump_go"), state_{FORWARD}
 {
     laser_sub_ = create_subscription<sensor_msgs::msg::LaserScan>("input_scan", rclcpp::SensorDataQoS(),
                                                                   std::bind(&BumpGo::scan_callback, this, std::placeholders::_1));
@@ -12,10 +12,14 @@ BumpGo::~BumpGo()
 {
 }
 
-void BumpGo::scan_callback(const sensor_msgs::msg::LaserScan::UniquePtr msg)
+void BumpGo::scan_callback(sensor_msgs::msg::LaserScan::UniquePtr msg)
 {
+    last_scan_ = std::move(msg);
 }
 
 void BumpGo::control_cycle()
 {
+    if(last_scan_ == nullptr)
+        return;
+    twist_pub_->publish(geometry_msgs::msg::Twist());
 }
