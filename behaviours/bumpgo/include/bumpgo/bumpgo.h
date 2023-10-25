@@ -2,6 +2,8 @@
 #include <sensor_msgs/msg/laser_scan.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 
+using namespace std::chrono_literals;
+
 class BumpGo : public rclcpp::Node {
     private:
         void scan_callback(const sensor_msgs::msg::LaserScan::UniquePtr msg);
