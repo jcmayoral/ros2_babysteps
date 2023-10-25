@@ -36,8 +36,17 @@ target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME})
 
 #ament_target_dependencies(${PROJECT_NAME}_node)
 
+install(TARGETS
+  ${PROJECT_NAME}_node
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
+)
+
 install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
-install(TARGETS ${PROJECT_NAME}_node DESTINATION bin)
+install(DIRECTORY launch
+ DESTINATION share/${PROJECT_NAME}
+)
 #install(TARGETS myStaticLib DESTINATION lib/myproject)
 #install(TARGETS myPlugin DESTINATION lib)
 
