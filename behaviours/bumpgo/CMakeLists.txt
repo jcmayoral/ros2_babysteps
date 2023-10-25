@@ -24,13 +24,15 @@ set (dependencies
 )
 
 include_directories(
-  include
+  include/
 )
 
-add_library(${PROJECT_NAME} src/bumpgo.cpp)
-add_executable(talker src/go_node.cpp)
-ament_target_dependencies(talker rclcpp std_msgs ${dependencies})
+add_library(${PROJECT_NAME} src/bumpgo.cpp )
+ament_target_dependencies(${PROJECT_NAME} rclcpp ${dependencies})
 
-install(TARGETS talker DESTINATION lib/${PROJECT_NAME})
+add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp)
+ament_target_dependencies(${PROJECT_NAME}_node rclcpp ${dependencies})
+
+install(TARGETS ${PROJECT_NAME}_node DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
