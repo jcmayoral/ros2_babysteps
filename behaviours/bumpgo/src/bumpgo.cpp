@@ -48,7 +48,7 @@ void BumpGo::control_cycle()
       out_vel.angular.z = SPEED_ANGULAR;
       struct obstacles obst;
       check_sides(obst);
-      RCLCPP_INFO(get_logger(), obst.left << " , " << obst.right);
+      RCLCPP_INFO(get_logger(), "%f %f ", obst.left , obst.right);
 
       if (obst.right> obst.left){
         out_vel.angular.z = -SPEED_ANGULAR;
