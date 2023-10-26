@@ -46,6 +46,13 @@ void BumpGo::control_cycle()
       break;
     case TURN:
       out_vel.angular.z = SPEED_ANGULAR;
+      struct obstacles obst;
+      check_sides(obst);
+      RCLCPP_INFO(get_logger(), obst.left << " , " << obst.right);
+
+      if (obst.right> obst.left){
+        out_vel.angular.z = -SPEED_ANGULAR;
+      }
 
       if (check_turn_2_forward()) {
         go_state(FORWARD);
@@ -96,4 +103,9 @@ bool BumpGo::check_back_2_turn()
 bool BumpGo::check_turn_2_forward()
 {
   return (now() - state_ts_) > TURNING_TIME;
+}
+
+void BumpGo::check_sides(struct obstacles& obstacles){
+  obstacles.left = last_scan_ -> ranges[0];
+  obstacles.right = last_scan_ -> ranges[-1];
 }

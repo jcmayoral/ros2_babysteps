@@ -5,6 +5,12 @@
 using namespace std::chrono_literals;
 
 class BumpGo : public rclcpp::Node {
+    struct obstacles
+    {
+        float left;
+        float right;
+    };
+    
     private:
         void scan_callback(sensor_msgs::msg::LaserScan::UniquePtr msg);
         void control_cycle();
@@ -14,6 +20,7 @@ class BumpGo : public rclcpp::Node {
         bool check_stop_2_forward();
         bool check_back_2_turn();
         bool check_turn_2_forward();
+        void check_sides(struct obstacles& obstacles);
 
         rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub_;
         rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr laser_sub_;
