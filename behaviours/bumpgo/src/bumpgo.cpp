@@ -48,7 +48,6 @@ void BumpGo::control_cycle()
       out_vel.angular.z = SPEED_ANGULAR;
       struct obstacles obst;
       check_sides(obst);
-      RCLCPP_INFO(get_logger(), "%f %f ", obst.left , obst.right);
 
       if (obst.right> obst.left){
         out_vel.angular.z = -SPEED_ANGULAR;
@@ -106,6 +105,11 @@ bool BumpGo::check_turn_2_forward()
 }
 
 void BumpGo::check_sides(struct obstacles& obstacles){
-  obstacles.left = last_scan_ -> ranges[0];
-  obstacles.right = last_scan_ -> ranges[-1];
+  auto ranges = last_scan_ -> ranges;
+  obstacles.left = ranges[0];
+  obstacles.right = ranges[ranges.size()-1];
+
+  RCLCPP_INFO(get_logger(), "R1 %f ", ranges[ranges.size()-1]);
+  RCLCPP_WARN(get_logger(), "R2 %f ", last_scan_ -> ranges[-2]);
+
 }
