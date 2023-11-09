@@ -1,7 +1,7 @@
 #include <rclcpp/rclcpp.hpp>
-#include <bump_detector/obtacle_detector.h>
+#include <bump_detector/obstacle_detector.h>
 
-int main(int argc, char ** argv){
+int main(int argc, char** argv) {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<ObstacleDetectorNode>();
     rclcpp::spin(node);
