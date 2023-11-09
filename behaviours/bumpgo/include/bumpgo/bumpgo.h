@@ -10,6 +10,8 @@ class BumpGo : public rclcpp::Node {
         float left;
         float right;
     };
+    protected:
+        rclcpp::Duration ROTATION_TIME;
     
     private:
         void scan_callback(sensor_msgs::msg::LaserScan::UniquePtr msg);
@@ -21,6 +23,7 @@ class BumpGo : public rclcpp::Node {
         bool check_back_2_turn();
         bool check_turn_2_forward();
         void check_sides(struct obstacles& obstacles);
+        void calc_rotation();
 
         rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub_;
         rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr laser_sub_;
@@ -40,6 +43,7 @@ class BumpGo : public rclcpp::Node {
         static constexpr float SPEED_LINEAR = 0.3f;
         static constexpr float SPEED_ANGULAR = 0.3f;
         static constexpr float OBSTACLE_DISTANCE = 1.0f;
+        float ROTATION_SPEED;
         int state_;
         rclcpp::Time state_ts_;
         

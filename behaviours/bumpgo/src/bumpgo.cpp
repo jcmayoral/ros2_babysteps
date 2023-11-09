@@ -1,6 +1,6 @@
 #include <bumpgo/bumpgo.h>
 
-BumpGo::BumpGo() : Node("bump_go"), state_{FORWARD}
+BumpGo::BumpGo() : Node("bump_go"), state_{FORWARD}, ROTATION_TIME{1s}
 {
     laser_sub_ = create_subscription<sensor_msgs::msg::LaserScan>("input_scan", rclcpp::SensorDataQoS(),
                                                                   std::bind(&BumpGo::scan_callback, this, std::placeholders::_1));
@@ -40,6 +40,7 @@ void BumpGo::control_cycle()
       out_vel.linear.x = -SPEED_LINEAR;
 
       if (check_back_2_turn()) {
+        calc_rotation();
         go_state(TURN);
       }
 
@@ -55,6 +56,7 @@ void BumpGo::control_cycle()
 
       if (check_turn_2_forward()) {
         go_state(FORWARD);
+        out_vel.angular.z = ROTATION_SPEED;
       }
 
       break;
@@ -101,6 +103,7 @@ bool BumpGo::check_back_2_turn()
 
 bool BumpGo::check_turn_2_forward()
 {
+  return (now() - state_ts_) > ROTATION_TIME;
   return (now() - state_ts_) > TURNING_TIME;
 }
 
@@ -108,8 +111,20 @@ void BumpGo::check_sides(struct obstacles& obstacles){
   auto ranges = last_scan_ -> ranges;
   obstacles.left = ranges[0];
   obstacles.right = ranges[ranges.size()-1];
+}
 
-  RCLCPP_INFO(get_logger(), "R1 %f ", ranges[ranges.size()-1]);
-  RCLCPP_WARN(get_logger(), "R2 %f ", last_scan_ -> ranges[-2]);
+void BumpGo::calc_rotation(){
+  auto it = std::max_element(std::begin(last_scan_ -> ranges), 
+    std::end(last_scan_ -> ranges));
+  auto idx = std::distance(std::begin(last_scan_ -> ranges), it);
 
+  auto angmax = last_scan_ -> angle_max;
+  auto angmin = last_scan_ -> angle_min;
+  auto anginc = last_scan_ -> angle_increment;
+
+  auto angle = angmin + (anginc * idx);
+  ROTATION_SPEED = angle < 0 ? -SPEED_ANGULAR : SPEED_ANGULAR;
+  auto duration = ROTATION_SPEED/angle;
+  RCLCPP_INFO(get_logger(), "%llu %f ", idx, duration);
+  ROTATION_TIME = ROTATION_TIME.from_seconds(duration);
 }
