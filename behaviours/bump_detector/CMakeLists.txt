@@ -20,6 +20,7 @@ find_package(visualization_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 
 set (dependencies 
+  rclcpp
   std_msgs
   sensor_msgs
   geometry_msgs
@@ -44,10 +45,9 @@ target_link_libraries(detector ${PROJECT_NAME} )
 
 
 add_executable(detector_improved src/detector_improved_main.cpp)
-ament_target_dependencies(detector_improved rclcpp ${dependencies})
+ament_target_dependencies(detector_improved ${dependencies})
 target_link_libraries(detector_improved ${PROJECT_NAME})
 
-ament_target_dependencies(${PROJECT_NAME}_node)
 
 install(TARGETS
   ${PROJECT_NAME}

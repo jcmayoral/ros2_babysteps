@@ -1,9 +1,9 @@
 #include <rclcpp/rclcpp.hpp>
-#include <bumpgo/bumpgo.h>
+#include <bump_avoidance/avoidance_node.h>
 
 int main(int argc, char ** argv){
     rclcpp::init(argc, argv);
-    auto node = std::make_shared<BumpGo>();
+    auto node = std::make_shared<AvoidanceNode>();
     rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;

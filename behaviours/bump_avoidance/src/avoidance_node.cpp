@@ -4,6 +4,8 @@ AvoidanceNode::AvoidanceNode() : Node("bump_avoidance")
 {
   laser_sub_ = create_subscription<sensor_msgs::msg::LaserScan>("input_scan", rclcpp::SensorDataQoS(), std::bind(&AvoidanceNode::scan_callback, this, std::placeholders::_1));
   twist_pub_ = create_publisher<geometry_msgs::msg::Twist>("output_vel", 10);
+  vff_debug_pub_ = create_publisher<visualization_msgs::msg::MarkerArray>("debug_array", 10);
+
   timer_ = create_wall_timer(50ms, std::bind(&AvoidanceNode::control_cycle, this));
 }
 
@@ -29,6 +31,55 @@ void AvoidanceNode::control_cycle()
   vel.angular.z = std::clamp(angle, -0.5, 0.5);
 
   twist_pub_->publish(out_vel);
+
+
+  if (vff_debug_pub_->get_subscription_count() > 0) {
+    vff_debug_pub_->publish(get_debug_vff(vff));
+  }
+}
+
+visualization_msgs::msg::MarkerArray AvoidanceNode::get_debug_vff(const VFFVectors& vectors) {
+  visualization_msgs::msg::MarkerArray marker_array;
+  marker_array.markers.push_back(make_marker(vectors.attractive, BLUE));
+  marker_array.markers.push_back(make_marker(vectors.repulsive, RED));
+  marker_array.markers.push_back(make_marker(vectors.result, GREEN));
+  return marker_array;
+}
+
+visualization_msgs::msg::Marker AvoidanceNode::make_marker(
+  const std::vector<float>& vector, VFFColor& vff_color) {
+  visualization_msgs::msg::Marker marker;
+  marker.header.frame_id = "base_footprint";
+  marker.header.stamp = now();
+  marker.type = visualization_msgs::msg::Marker::ARROW;
+  marker.id = visualization_msgs::msg::Marker::ADD;
+
+  geometry_msgs::msg::Point start{ x = vector[0], y = vector[1], z = 0.0 };
+  geometry_msgs::msg::Point end;
+
+  marker.points = { start, end };
+  marker.scale.x = 0.05;
+  marker.scale.y = 0.1;
+
+  switch (vff_color) {
+  case RED:
+    marker.id = 0;
+    marker.color.r = 1.0;
+    break;
+  case GREEN:
+    marker.id = 1
+      marker.color.g = 1.0;
+    break;
+  case BLUE:
+    marker.id = 2;
+    marker.color.b = 1.0;
+    break;
+  }
+  marker.color.a = 1.0;
+  return marker;
+
+
+
 }
 
 VFFVectors AvoidanceNode::(const sensor_msgs::msg::LaserScan& scan) {
