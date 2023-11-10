@@ -66,15 +66,15 @@ visualization_msgs::msg::Marker AvoidanceNode::make_marker(
 
   switch (vff_color) {
   case RED:
-    marker.id = 0;
+    //marker.id = 0;
     marker.color.r = 1.0;
     break;
   case GREEN:
-    marker.id = 1;
+    //marker.id = 1;
       marker.color.g = 1.0;
     break;
   case BLUE:
-    marker.id = 2;
+    //marker.id = 2;
     marker.color.b = 1.0;
     break;
   }
@@ -100,7 +100,7 @@ VFFVectors AvoidanceNode::get_vff(const sensor_msgs::msg::LaserScan& scan) {
   float distance_min = scan.ranges[min_idx];
 
   if (distance_min < OBSTACLE_DISTANCE) {
-    float angle = scan.angle.min + scan.angle_increment * min_idx;
+    float angle = scan.angle_min + scan.angle_increment * min_idx;
     float oposite_angle = angle + M_PI;
     //Mdodule of vector is inversot of distance to obstacle
     float complementary_distance = OBSTACLE_DISTANCE - distance_min;
