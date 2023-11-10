@@ -1,6 +1,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/laser_scan.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <visualization_msgs/msg/marker_array.hpp>
 
 using namespace std::chrono_literals;
 typedef enum {RED, GREEN, BLUE, NUM_COLORS} VFFColors;
@@ -17,8 +18,8 @@ class AvoidanceNode : public rclcpp::Node {
     protected:
         VFFVectors get_vff(const sensor_msgs::msg::LaserScan & scan);
         visualization_msgs::msg::MarkerArray get_debug_vff(const VFFVectors & vectors);
-        visualization_msgs::msg::Marker make_maker(
-            const std::vector<float> & vector, VFFColor & vff_color);
+        visualization_msgs::msg::Marker make_marker(
+            const std::vector<float> & vector, VFFColors vff_color);
 
     private:
         rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub_;

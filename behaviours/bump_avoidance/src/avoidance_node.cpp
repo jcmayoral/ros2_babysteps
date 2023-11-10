@@ -19,7 +19,7 @@ void AvoidanceNode::control_cycle()
   if (last_scan_ == nullptr || (now() - last_scan_->header.stamp) > 1s)
     return;
 
-  const VFFVectors& vff = get_vff(*last_scan);
+  const VFFVectors& vff = get_vff(*last_scan_);
 
   //result vecotr
   const auto& v = vff.result;
@@ -27,8 +27,8 @@ void AvoidanceNode::control_cycle()
   double module = sqrt(pow(v[0], 2) + pow(v[1], 2));
 
   geometry_msgs::msg::Twist out_vel;
-  vel.linear.x = std::clamp(module, 0.0, 0.3);
-  vel.angular.z = std::clamp(angle, -0.5, 0.5);
+  out_vel.linear.x = std::clamp(module, 0.0, 0.3);
+  out_vel.angular.z = std::clamp(angle, -0.5, 0.5);
 
   twist_pub_->publish(out_vel);
 
@@ -47,14 +47,17 @@ visualization_msgs::msg::MarkerArray AvoidanceNode::get_debug_vff(const VFFVecto
 }
 
 visualization_msgs::msg::Marker AvoidanceNode::make_marker(
-  const std::vector<float>& vector, VFFColor& vff_color) {
+  const std::vector<float> & vector, VFFColors vff_color) {
   visualization_msgs::msg::Marker marker;
   marker.header.frame_id = "base_footprint";
   marker.header.stamp = now();
   marker.type = visualization_msgs::msg::Marker::ARROW;
   marker.id = visualization_msgs::msg::Marker::ADD;
 
-  geometry_msgs::msg::Point start{ x = vector[0], y = vector[1], z = 0.0 };
+  geometry_msgs::msg::Point start;
+  start.x = vector[0];
+  start.y = vector[1];
+  start.z = 0.0;
   geometry_msgs::msg::Point end;
 
   marker.points = { start, end };
@@ -67,7 +70,7 @@ visualization_msgs::msg::Marker AvoidanceNode::make_marker(
     marker.color.r = 1.0;
     break;
   case GREEN:
-    marker.id = 1
+    marker.id = 1;
       marker.color.g = 1.0;
     break;
   case BLUE:
@@ -82,7 +85,7 @@ visualization_msgs::msg::Marker AvoidanceNode::make_marker(
 
 }
 
-VFFVectors AvoidanceNode::(const sensor_msgs::msg::LaserScan& scan) {
+VFFVectors AvoidanceNode::get_vff(const sensor_msgs::msg::LaserScan& scan) {
   const float OBSTACLE_DISTANCE = 1.0;
 
   //init
