@@ -19,7 +19,7 @@ void ObstacleMonitorNode::control_cycle() {
         robot2obstacle = tf_buffer_.lookupTransform(
             "base_footprint", "detected_obstacle", tf2::TimePointZero);
     }
-    catch (tf2::TransformException ex) {
+    catch (tf2::TransformException & ex) {
         RCLCPP_WARN(get_logger(), "Obstacle transform not fount %s", ex.what());
     }
 
